@@ -9,6 +9,11 @@ public class Library {
 
     private ArrayList<LibraryUser> users;
 
+    public Library(String name) {
+        this.name = name;
+        this.libraryItems = new ArrayList<>();
+        this.users = new ArrayList<>();
+    }
 
     //Methods
     public boolean bookLoan(int idUser,int itemID)
@@ -41,6 +46,19 @@ public class Library {
         return false;
     }
 
+    public boolean addUser(LibraryUser new_user)
+    {
+        for (LibraryUser user_x:users)
+        {
+            if(new_user.getUserID() == user_x.getUserID())
+            {
+                return false;
+            }
+        }
+        users.add(new_user);
+        return true;
+    }
+
     public void showAllItems()
     {
         System.out.println("Library Items:\n");
@@ -48,7 +66,18 @@ public class Library {
         for (LibraryItem item: libraryItems)
         {
             item.showDetails();
-            System.out.print("----------------------\n");
+            System.out.print("\n----------------------\n");
+        }
+    }
+
+    public void showAllUsers()
+    {
+        System.out.print("USERS:\n");
+        System.out.print("----------------------\n");
+        for (LibraryUser user: users)
+        {
+            user.showUserDetails();
+            //System.out.print("\n----------------------\n");
         }
     }
 
