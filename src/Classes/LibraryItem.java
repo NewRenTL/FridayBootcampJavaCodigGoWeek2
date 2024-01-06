@@ -35,4 +35,10 @@ public class LibraryItem {
     public void setAvailable(boolean available) {
         this.available = available;
     }
+
+    public void showDetails()
+    {
+        System.out.print("ID:"+id+"\n"+"Title:"+title+"\n"+"Available:"+available+"\n");
+
+    }
 }
